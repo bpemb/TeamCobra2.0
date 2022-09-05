@@ -29,7 +29,7 @@ ITEC 3870 Team Cobra
      ```
 
 ## How to Install this Project
-1. **Download the JSON JAR File**
+1. **Download the [JSON Simple](http://www.java2s.com/Code/Jar/j/Downloadjsonsimple111jar.htm) JAR File**
      <p>i. Extract the JAR file to a location of your choosing. </p>
      <p>ii. In your IDE, configure the buildpath to include this file in your libraries section. </p>
 2. **Spring Tool Suite 4**
