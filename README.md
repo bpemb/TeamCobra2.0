@@ -5,6 +5,7 @@ The purpose of this project is to implement a functional API that takes the name
 ## Team Members
 1. **Brian Smithers** (Team Manager/Client Liason and Code Architecture/Lead Programmer) :mechanical_arm:
 2. **Chase Harrod** (Documentation Lead) :pencil2:
+3. **Saif Shaikh** (UI Designer) 🚧 :scream: 🚧
 
 ## Repo Link
 https://github.com/bpemb/TeamCobra2.0
