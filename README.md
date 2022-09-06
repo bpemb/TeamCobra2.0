@@ -7,6 +7,7 @@ The purpose of this project is to implement a functional API that takes the name
 2. **Chase Harrod** (Documentation Lead) :pencil2:
 3. **Saif Shaikh** (UX/UI Designer) 🚧 :art: 🚧
 4. **Javier Zarate Zaragoza** (Data Modeler) 🤖
+5. **Baldwin Pemberton** (Testing Lead and Code Architecture/Lead Programmer) :grey_exclamation::grey_exclamation::grey_exclamation::walking::grey_exclamation::grey_exclamation::grey_exclamation:
 
 ## Repo Link
 https://github.com/bpemb/TeamCobra2.0
