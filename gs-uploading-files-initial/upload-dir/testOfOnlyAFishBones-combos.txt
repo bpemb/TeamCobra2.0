@@ -1,0 +1,15 @@
+Parameter Name: Discriminant | Equivalence Classes: [Fishbones, LessThanZero, GreaterThanZero]
+Parameter Name: A | Equivalence Classes: [0, 1, Negative, Positive]
+
+Test Case 1:   When Discriminant = GreaterThanZero and A = Positive - Expected result => FirstQuadraticRoot SecondQuadraticRoot 
+Test Case 2:   When Discriminant = GreaterThanZero and A = Negative - Expected result => FirstQuadraticRoot SecondQuadraticRoot 
+Test Case 3:   When Discriminant = GreaterThanZero and A = 1 - Expected result => FirstQuadraticRoot SecondQuadraticRoot 
+Test Case 4:   When Discriminant = GreaterThanZero and A = 0 - Expected result => UndefinedRoots 
+Test Case 5:   When Discriminant = LessThanZero and A = Positive - Expected result => SecondImaginaryRoot FirstImaginaryRoot 
+Test Case 6:   When Discriminant = LessThanZero and A = Negative - Expected result => SecondImaginaryRoot FirstImaginaryRoot 
+Test Case 7:   When Discriminant = LessThanZero and A = 1 - Expected result => SecondImaginaryRoot FirstImaginaryRoot 
+Test Case 8:   When Discriminant = LessThanZero and A = 0 - Expected result => UndefinedRoots 
+Test Case 9:   When Discriminant = Fishbones and A = Positive - Expected result => Invalid
+Test Case 10:  When Discriminant = Fishbones and A = Negative - Expected result => Invalid
+Test Case 11:  When Discriminant = Fishbones and A = 1 - Expected result => Invalid
+Test Case 12:  When Discriminant = Fishbones and A = 0 - Expected result => UndefinedRoots 

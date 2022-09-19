@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Team_Java_Beans-main.iml" filepath="$PROJECT_DIR$/.idea/Team_Java_Beans-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gs-uploading-files-initial/uploading-files-initial.iml" filepath="$PROJECT_DIR$/gs-uploading-files-initial/uploading-files-initial.iml" />
+    </modules>
+  </component>
+</project>
