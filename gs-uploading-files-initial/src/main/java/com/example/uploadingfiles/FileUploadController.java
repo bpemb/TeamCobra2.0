@@ -94,7 +94,8 @@ public class FileUploadController {
 		// write to the file and update the count variable, so it can be used later.
 		for (Parameter temp : arrList) {
 			writer.write(
-					"Parameter Name: " + temp.getName() + " | Equivalence Classes: " + temp.getEquivalenceClasses());
+					"Parameter Name: " + temp.getName() + " | Equivalence Classes: " +
+							temp.getEquivalenceClasses());
 			writer.write("\n");
 			count = count * temp.getEquivalenceClasses().size();
 		}
@@ -109,26 +110,45 @@ public class FileUploadController {
 		// make the map after generating the test cases in case the order of the parameters
 		// changes somehow
 		Map<String, Integer> parameterNameIndexMap = fileParser.getParamMap(arrList);
-		//Map< Integer,String> parameterNameIndexMapByIndex = fileParser.getParamMapByIndex(arrList);
+
+		// New method added
+		writeOutputTestCases(combos, writer, arrList, expectedResults, parameterNameIndexMap);
+
+		writer.close();
+	}
+
+	//TODO document this method
+	/**
+	 *
+	 * @param combos
+	 * @param writer
+	 * @param arrList
+	 * @param expectedResults
+	 * @param parameterNameIndexMap
+	 * @throws Exception
+	 */
+	private void writeOutputTestCases(String[][] combos, BufferedWriter writer, ArrayList<Parameter> arrList,
+									  ArrayList<ExpectedResult> expectedResults,
+									  Map<String, Integer> parameterNameIndexMap) throws Exception{
 		// this is used to write the test case combinations to the text file.
 		int testCaseNumber = 1;
-		for (int row = 0; row < combos.length; row++) {
+
+		for (String[] combo : combos) {
 			if (testCaseNumber < 10) {
 				writer.write("Test Case " + testCaseNumber + ":   ");
-			} else if (testCaseNumber >= 10 && testCaseNumber < 100) {
+			}
+			else if (testCaseNumber >= 10 && testCaseNumber < 100) {
 				writer.write("Test Case " + testCaseNumber + ":  ");
-			} else {
+			}
+			else {
 				writer.write("Test Case " + testCaseNumber + ": ");
 			}
 			testCaseNumber++;
-			for (int column = 0; column < combos[row].length; column++) {
+			for (int column = 0; column < combo.length; column++) {
 				String paramName = arrList.get(column).getName();
 				String conjunction = column == 0 ? "When " : "and ";
-				String output = conjunction + paramName + " = "+  combos[row][column] +" ";
+				String output = conjunction + paramName + " = " + combo[column] + " ";
 				writer.write(output);
-
-				//writer.write(combos[row][column] + " ");
-
 			}
 
 			// use a string builder so the concatenation of multiple expected results is
@@ -136,20 +156,17 @@ public class FileUploadController {
 			StringBuilder expectedResultsStringBuilder = new StringBuilder("");
 			for (ExpectedResult er : expectedResults) {
 				Queue<String> condition = fileParser.prepareCondition(er.getCondition());
-				if(fileParser.compareTestCaseWithCondtions(condition, combos[row], parameterNameIndexMap)) {
+				if (fileParser.compareTestCaseWithCondtions(condition, combo, parameterNameIndexMap)) {
 					expectedResultsStringBuilder.append(er.getName()).append(" ");
 				}
 			}
-			if(expectedResultsStringBuilder.toString().equals("")) {
+			if (expectedResultsStringBuilder.toString().equals("")) {
 				expectedResultsStringBuilder.append("Invalid");
 			}
-			writer.write( "- Expected result => " +expectedResultsStringBuilder.toString());
+			writer.write("- Expected result => " + expectedResultsStringBuilder.toString());
 
 			writer.write("\n");
 		}
-
-		writer.close();
-
 	}
 
 	@PostMapping("/api")
