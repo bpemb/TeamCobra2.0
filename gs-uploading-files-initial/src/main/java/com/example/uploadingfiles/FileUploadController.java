@@ -32,9 +32,13 @@ import com.example.uploadingfiles.fileParsing.Parameter;
 import com.example.uploadingfiles.storage.StorageFileNotFoundException;
 import com.example.uploadingfiles.storage.StorageService;
 
-//This file was imported using spring boot. We did not create this file, but simply modified it to fit our needs
-//link to the source: https://spring.io/guides/gs/uploading-files/
-//This class is used to decide routes for the API to take.
+
+/**
+ * Class: FileUploadController
+ * purpose: decides the routes that the API takes when a file is uploaded
+ * We did not create this file but modified it to fit our needs
+ * Source: https://spring.io/guides/gs/uploading-files/
+ */
 @Controller
 public class FileUploadController {
 
@@ -48,8 +52,15 @@ public class FileUploadController {
 		this.fileParser = fileParser;
 	}
 
-	// This code remained unchanged. It is used to render our view when the page is
-	// loaded.
+
+	/**
+	 * method: listUploadedFiles
+	 * renders user view of webpage when the page is loaded
+	 * remains unchanged
+	 * @param model
+	 * @return String
+	 * @throws IOException
+	 */
 	@GetMapping("/")
 	public String listUploadedFiles(Model model) throws IOException {
 
@@ -63,8 +74,13 @@ public class FileUploadController {
 		return "uploadForm";
 	}
 
-	// This code remained unchanged. This is to get a specific file resource stored
-	// in the upload-dir folder.
+	/**
+	 * method: serveFile
+	 * gets a specific file resource in the upload-dir folder
+	 * remained unchanged
+	 * @param filename
+	 * @return ResourceEntity<Resource>
+	 */
 	@GetMapping("/files/{filename:.+}")
 	@ResponseBody
 	public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
@@ -74,6 +90,13 @@ public class FileUploadController {
 				.body(file);
 	}
 
+	/**
+	 * method: processFile
+	 * parses the passed file using FileParser and writes the output file using the combinations used in the passed file
+	 * @param file
+	 * @param fileNameNoExt
+	 * @throws Exception
+	 */
 	public void processFile(MultipartFile file, String fileNameNoExt) throws Exception {
 		// store the json file in order to use it later
 		storageService.store(file);
@@ -117,9 +140,9 @@ public class FileUploadController {
 		writer.close();
 	}
 
-	//TODO document this method
 	/**
-	 *
+	 * method: writeOutputTestCases
+	 * writes the test cases when the file is parsed in FileParser.java into a .txt file for the user to read
 	 * @param combos
 	 * @param writer
 	 * @param arrList
@@ -169,6 +192,14 @@ public class FileUploadController {
 		}
 	}
 
+	/**
+	 * method: directAPI
+	 * takes the passed file and loads the completed output file to be displayed on the webpage
+	 * also returns a badRequest resource if there is an issue with processFile()
+	 *
+	 * @param file
+	 * @return ResourceEntity<Resource>
+	 */
 	@PostMapping("/api")
 	@ResponseBody
 	public ResponseEntity<Resource> directAPI(@RequestParam("file") MultipartFile file) {
@@ -196,6 +227,16 @@ public class FileUploadController {
 	// to parse and create combinations. Then it will write to a new file and add
 	// that to the
 	// upload-dir folder.
+
+	/**
+	 * method: handleFileUpload
+	 * stores submitted JSON file to be used and parsed to create combinations
+	 * writes a new file with the result from processFile() and adds the file to the upload-dir folder
+	 * modified to gain needed functionality
+	 * @param file
+	 * @param redirectAttributes
+	 * @return String
+	 */
 	@PostMapping("/")
 	public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
 
