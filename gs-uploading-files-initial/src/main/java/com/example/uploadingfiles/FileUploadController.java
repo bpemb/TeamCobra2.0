@@ -221,12 +221,6 @@ public class FileUploadController {
 				.body(res);
 	}
 
-	// This method was modified in order to gain the functionality we need.
-	// The purpose of this method is to store the JSON file submitted in order to
-	// use it
-	// to parse and create combinations. Then it will write to a new file and add
-	// that to the
-	// upload-dir folder.
 
 	/**
 	 * method: handleFileUpload
