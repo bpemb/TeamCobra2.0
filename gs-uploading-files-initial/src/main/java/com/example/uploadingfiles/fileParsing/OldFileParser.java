@@ -11,6 +11,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Service;
 
+/**
+ * Class: OldFileParser
+ * Purpose: No longer serves a purpose for the project. Replaced by FileParser
+ */
 @Service
 public class OldFileParser {
 	
@@ -23,11 +27,7 @@ public class OldFileParser {
 		OldFileParser ofp = new OldFileParser();
 		
 		ArrayList<Parameter> arrList = ofp.parseFile("upload-dir/ExecutionQueueOnSave.json"); 
-		//ArrayList<Parameter> arrList = ofp.parseFile("upload-dir/ExpressionsExampleWithRecursion.json");
-		//ArrayList<Parameter> arrList = parseFile("IcmVerboseLogging_Expiration.json");
-		//ArrayList<Parameter> arrList = parseFile("MultiTenantOnboardingSecurity.json");
-		//ArrayList<Parameter> arrList = parseFile("QuadraticEquationSolver.json");
-		//ArrayList<Parameter> arrList = ofp.parseFile("OrgLevelUnits.json");
+
 		int count = 1;
 		
 		for (Parameter temp : arrList) {
@@ -36,10 +36,8 @@ public class OldFileParser {
 		}
 		
 		String[][] com = ofp.createCombos(arrList, count);
-		
-		//for (String[][] temp : com) {
-		////	System.out.println(Arrays.toString(temp));
-		//}
+
+
 	
 	}
 	
@@ -95,15 +93,14 @@ public class OldFileParser {
 				}
 			}
 		}
-		//int c = 0;
+
 		//use this to print out each element of the matrix
 		for (int row = 0; row < paramArray.length; row++) {
 			for (int column = 0; column < paramArray[row].length; column++) {
 				System.out.print(paramArray[row][column] + " ");
 			}
-			//c++;
-			System.out.println();
-			//System.out.println(c);
+
+
 		}
 		//return tempList;
 		return paramArray;
@@ -111,7 +108,6 @@ public class OldFileParser {
 
 	public ArrayList<Parameter> parseFile(String fileName) throws Exception {
 		ArrayList<String> paramNameList = new ArrayList<>();
-		//ArrayList<String> equivClassName = new ArrayList<>();
 		ArrayList<Parameter> pList = new ArrayList<>();
 
 	    Object obj = new JSONParser().parse(new FileReader(fileName));
@@ -124,7 +120,6 @@ public class OldFileParser {
 	    Iterator<Map.Entry> itr1 = inputParameters.entrySet().iterator();
 	    while (itr1.hasNext()) {
 	        Map.Entry pair = itr1.next();
-	        //System.out.println(pair.getKey() + " : " + pair.getValue());
 	        String paramNames = (String) pair.getKey();
 	        paramNameList.add(paramNames); 
 	        
@@ -132,14 +127,12 @@ public class OldFileParser {
 			param.setName(paramNames);
 			
 	        JSONObject value = (JSONObject) pair.getValue();
-	        //System.out.println(value);
+
 	        Map equivClass = ((Map) value.get("EquivalenceClasses"));
 	        Iterator<Map.Entry> itr2 = equivClass.entrySet().iterator();
 	        while (itr2.hasNext()) {
 	            Map.Entry pair2 = itr2.next();
-	            //System.out.println(pair2.getKey() + " : " + pair2.getValue());
-	            //equivClassName.add((String) pair2.getKey());
-	            param.addParam((String)pair2.getKey());   
+	            param.addParam((String)pair2.getKey());
 	        }
 	        pList.add(param);
 	    }
@@ -147,8 +140,6 @@ public class OldFileParser {
 	    ArrayList<String[]> tempList = new ArrayList<>();
 	    
 	    for (Parameter temp : pList) {
-	    	//System.out.println("Parameter Name: " + temp.getName() + " | Equivalence classes: " + temp.getEquivalenceClasses());
-	    	//System.out.println(temp.getEquivalenceClasses());
 	    	paramList.add(temp.getEquivalenceClasses());
 	    }
 	    
