@@ -19,23 +19,23 @@
 }
 
 :root{
-    --primary-color: #ffffff;
-    --secondary-color: black;
-    --third-color: #03dac5;
-    --fourth-color: #a2f3eb;
-    --fifth-color: #012c27;
-    --sixth-color: #c6fef9;
-    --seventh-color: #595953;
-
-}
-
-.dark-theme{
     --primary-color: #121212;
     --secondary-color: white;
     --third-color: #ff004f;
     --fourth-color: #262626;
     --fifth-color: #a0a0a0;
     --sixth-color: #d0d0d0;
+    --seventh-color: #595953;
+
+}
+
+.dark-theme{
+    --primary-color: #ffffff;
+    --secondary-color: black;
+    --third-color: #03dac5;
+    --fourth-color: #a2f3eb;
+    --fifth-color: #012c27;
+    --sixth-color: #c6fef9;
     --seventh-color: #595953;
 
 }
@@ -166,6 +166,33 @@ nav:hover{
     margin-bottom: 200px;
 }
 
+#contentText{
+    color: var(--secondary-color);
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+#contentStepText{
+    color: black;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#floatingLink{
+    color: purple;
+    font-size: 20px;
+    padding: 0;
+    margin: 3px;
+    font-weight: bold;
+}
+
+#ImgBrowse{
+    border-radius: 15px;
+}
 .container-list{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -307,7 +334,7 @@ nav:hover{
     text-transform: uppercase;
     cursor: pointer;
     color: white;
-    background-color: var( --fifth-color);
+    background-color: var(--third-color);
 }
 
 .container2 #customBtn:hover{
@@ -535,11 +562,31 @@ iframe{
     color: black;
 }
 
+.footerSection{
+    background: rgb(85, 83, 83);
+}
 
+#GGClink{
+    color: var(--secondary-color);
+    position: relative;
+    margin-left: 90px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+#GGClinkColor{
+    color: green;
+    position: relative;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+
+}
     </style>
 </head>
 
-<img th:src="@{https://i.imgur.com/Nh1WmIJ.png}" id="moonLogo">
+<img th:src="@{https://i.imgur.com/LOsNY8n.png}" id="moonLogo">
 
 <script>
 
@@ -548,11 +595,12 @@ iframe{
 
         document.body.classList.toggle("dark-theme");
         if(document.body.classList.contains("dark-theme")){
-            moonLogo.src = "https://i.imgur.com/LOsNY8n.png";
+             moonLogo.src = "https://i.imgur.com/Nh1WmIJ.png";
 
         }
         else{
-            moonLogo.src = "https://i.imgur.com/Nh1WmIJ.png";
+
+            moonLogo.src = "https://i.imgur.com/LOsNY8n.png";
         }
 
     }
@@ -577,25 +625,25 @@ iframe{
             </a>
             </li>
 
-            <li><a href="http://projectclue.altervista.org/TeamCobra_2.0_Project/CobraGGCpage.html" class="sublogo">
+            <li><a href="https://teamcobra.neocities.org/CobraGGCpage.html" class="sublogo">
                 <img th:src="@{https://i.imgur.com/NmTcjQn.png}" alt="">
                 <span class="nav-item">Georgia Gwinnett College</span>
             </a>
             </li>
 
-            <li><a href="http://projectclue.altervista.org/TeamCobra_2.0_Project/CobraInfo.html" class="sublogo">
+            <li><a href="https://teamcobra.neocities.org/CobraInfo.html" class="sublogo">
                 <img th:src="@{https://i.imgur.com/3ka61k3.png}" alt="">
                 <span class="nav-item">Information</span>
             </a>
             </li>
 
-            <li><a href="http://projectclue.altervista.org/TeamCobra_2.0_Project/CobraMTT.html" class="sublogo">
+            <li><a href="https://teamcobra.neocities.org/CobraMTT.html" class="sublogo">
                 <img th:src="@{https://i.imgur.com/T280Fe8.png}" alt="">
                 <span class="nav-item">Meet The Team</span>
             </a>
             </li>
 
-            <li><a href="http://projectclue.altervista.org/TeamCobra_2.0_Project/CobraAbout.html" class="sublogo">
+            <li><a href="https://teamcobra.neocities.org/CobraAbout.html" class="sublogo">
                 <img th:src="@{https://i.imgur.com/Z1C5mMF.png}" alt="">
                 <span class="nav-item">About</span>
             </a>
@@ -603,6 +651,7 @@ iframe{
         </ul>
     </nav>
 </div>
+
 
 <body>
 
@@ -615,7 +664,7 @@ iframe{
     <img th:src="@{https://i.imgur.com/pSxwxGZ.png}">
 </div>
 
-<h1 class="title">Catagory Partition<br>Method</h1>
+<h1 class="title">Category Partition<br>Method</h1>
 
 <div id="wrapper">
 
@@ -625,40 +674,52 @@ iframe{
 
             <div>
                 <h2>What does this page do?</h2>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah </p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah </p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah</p>
-                <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah </p>
-                <a href="#">learn more</a>
+                <p id="contentText">The purpose of this project is to implement a functional API that
+                    takes the name of an input file as its parameter and return the
+                    name of an output file as its only result. The input file will
+                    specify the functionality of software under test using the
+                    category-partition method. The API will apply the category-partition
+                    method to the formated contents of the input file, generating test
+                    cases based on the specification, and writing the results for them
+                    to an output file in the Cucumber "given-when-then" notation. The
+                    test cases will specify the selection of equivalence classes for
+                    the parameter and the expected test results when the test has been
+                    running.</p>
+
+                <p id="contentText">Link to user guide, click<a id="floatingLink" href="https://github.com/cventimiglia/Team_CPMC/blob/main/USER-GUIDE.txt" target="_blank">HERE</a></p>
+
+
             </div>
 
             <div>
                 <h2>The Catagory Partition Method.</h2>
-                <p>Blah Blah</p>
-                <a href="#">learn more</a>
+                <p id="contentText">As a tester, the number of tests that can be performed depends on
+                    a set of conditions and parameters of a function. The number of
+                    tests can be small, but most of the time, it is a large amount.
+                    Therefore, most testers use different testing techniques to help
+                    limit the total number of tests needing to be completed. The
+                    Category-Partition Method allows the tester to generate
+                    equivalence classes for each parameter. For example, an integer
+                    parameter can have equivalence classes: Negative, Positive,
+                    Max Integer Value, Min Integer Value, and 0. These equivalence
+                    classes eliminate the need to test every number of the same type.
+                    An example would be the numbers Seven or Eight. Since the two
+                    numbers are both positive integers, they will provide the same
+                    functionality within the test. </p>
+
             </div>
 
             <div>
                 <h2>Example of JSON file.</h2>
-                <p>Blah Blah</p>
-                <a href="#">learn more</a>
+                <p id="contentText">For example JSON file click<a id="floatingLink" href="https://github.com/cventimiglia/Team_CPMC/blob/main/ExecutionQueueOnSave.json" target="_blank">HERE</a></p>
+                <p id="contentStepText">Step 1</p>
+                <p id="contentText">Click browse and choose JSON file</p>
+                <img id="ImgBrowse" th:src="@{https://i.imgur.com/Gs65Cpj.png}">
+                <br><br>
+                <p id="contentStepText">Step 2</p>
+                <p id="contentText">Press upload and get results</p>
+                <p id="contentText">Easy right?</p>
+
             </div>
 
         </div>
@@ -775,10 +836,16 @@ iframe{
         <a class="button" href="#top">Back to top</a>
         <br><br><br><br>
         <hr id="hrFooter">
-        <footer>
-            Copyright &copy; 2022 TEAMCOBRA2.0
-        </footer>
-        <br><br><br><br>
+
+        <div class="footerSection">
+            <br><br><br>
+            <footer>
+                Copyright &copy; 2022 TEAMCOBRA2.0
+            </footer>
+
+            <br><br><br><br>
+        </div>
+
 
     </main>
 </div>
