@@ -44,6 +44,8 @@ ITEC 3870 Team Cobra
 Right click on ```gs-uploading-files-initial```, click ```run as```, and in the options to run the file select ```Spring Boot App```. Finally,
 go to a web browser of your choosing and type in the following ```localhost:8080```.
 
+If using Intellij, run the file ```UploadingFileApplication```. Once the command line displays the SpringBoot information, open a web browser and type ```localhost:8080``` into the search bar. 
+
 ## License
 Copyright (c) 2022 Team Cobra 2.0
 
