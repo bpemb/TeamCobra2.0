@@ -182,7 +182,15 @@ nav:hover{
     font-weight: bold;
 }
 
-#floatingLink{
+#floatingLinkGuide{
+    color: purple;
+    font-size: 20px;
+    padding: 0;
+    margin: 3px;
+    font-weight: bold;
+}
+
+#floatingLinkExample{
     color: purple;
     font-size: 20px;
     padding: 0;
@@ -584,6 +592,7 @@ iframe{
 
 }
     </style>
+
 </head>
 
 <img th:src="@{https://i.imgur.com/LOsNY8n.png}" id="moonLogo">
@@ -664,7 +673,7 @@ iframe{
     <img th:src="@{https://i.imgur.com/pSxwxGZ.png}">
 </div>
 
-<h1 class="title">Category Partition<br>Method</h1>
+<h1 class="title">Category-Partition<br>Method</h1>
 
 <div id="wrapper">
 
@@ -674,25 +683,23 @@ iframe{
 
             <div>
                 <h2>What does this page do?</h2>
-                <p id="contentText">The purpose of this project is to implement a functional API that
-                    takes the name of an input file as its parameter and return the
-                    name of an output file as its only result. The input file will
-                    specify the functionality of software under test using the
-                    category-partition method. The API will apply the category-partition
-                    method to the formated contents of the input file, generating test
-                    cases based on the specification, and writing the results for them
-                    to an output file in the Cucumber "given-when-then" notation. The
-                    test cases will specify the selection of equivalence classes for
-                    the parameter and the expected test results when the test has been
-                    running.</p>
+                <p id="contentText">The purpose of this project is to implement a functional API
+                    that takes the name of an input file as its parameter and returns the name
+                    of an output file as its only result. The input file will specify the functionality
+                    of the software under test using the category-partition method. The API will
+                    apply the category-partition method to the formatted contents of the input file,
+                    generating test cases based on the specification, and writing the results for
+                    them to an output file in the Cucumber "given-when-then" notation. The test
+                    cases will specify the selection of equivalence classes for the parameter
+                    and the expected test results when the test has been running.</p>
 
-                <p id="contentText">Link to user guide, click<a id="floatingLink" href="https://github.com/cventimiglia/Team_CPMC/blob/main/USER-GUIDE.txt" target="_blank">HERE</a></p>
+                <p id="contentText">Link to user guide, click<a id="floatingLinkGuide" href="https://github.com/cventimiglia/Team_CPMC/blob/main/USER-GUIDE.txt" target="_blank">HERE</a></p>
 
 
             </div>
 
             <div>
-                <h2>The Catagory Partition Method.</h2>
+                <h2>The Category-Partition Method.</h2>
                 <p id="contentText">As a tester, the number of tests that can be performed depends on
                     a set of conditions and parameters of a function. The number of
                     tests can be small, but most of the time, it is a large amount.
@@ -711,10 +718,10 @@ iframe{
 
             <div>
                 <h2>Example of JSON file.</h2>
-                <p id="contentText">For example JSON file click<a id="floatingLink" href="https://github.com/cventimiglia/Team_CPMC/blob/main/ExecutionQueueOnSave.json" target="_blank">HERE</a></p>
+                <p id="contentText">For example JSON file click<a id="floatingLinkExample" href="https://github.com/cventimiglia/Team_CPMC/blob/main/ExecutionQueueOnSave.json" target="_blank">HERE</a></p>
                 <p id="contentStepText">Step 1</p>
                 <p id="contentText">Click browse and choose JSON file</p>
-                <img id="ImgBrowse" th:src="@{https://i.imgur.com/Gs65Cpj.png}">
+                <img id="ImgBrowse" th:src="@{https://i.imgur.com/w748lDt.png}">
                 <br><br>
                 <p id="contentStepText">Step 2</p>
                 <p id="contentText">Press upload and get results</p>
@@ -744,21 +751,11 @@ iframe{
 
                         </div>
 
-                        <!--                        						<input type="file" name="file" id="default-btn"  hidden="hidden">-->
-                        <!--                        						<button id="customBtn" >Choose a file</button>-->
-
                         <form method="POST" enctype="multipart/form-data" action="/">
 
-                            <p class="warning">*note: file must be .json file</p>
-
+                            <p class="warning">*Note: file must be .json file</p>
 
                             <p><input type="file" name="file"/></p>
-
-
-                            <!--                            <button id="customBtn" >Choose a file</button>-->
-
-                            <!--                            <span id="custon-text">No file choosen, yet</span>-->
-
 
                             <br>
                             <p><input id="submitBtn" type="submit" value="Upload"/></p>
@@ -767,30 +764,7 @@ iframe{
 
                     </div>
 
-
-                    <!--                    <script>-->
-                    <!--                            const realFileBtn = document.getElementById("default-btn");-->
-                    <!--                            const customBtn = document.getElementById("customBtn");-->
-                    <!--                            const customTxt= document.getElementById("custon-text");-->
-
-                    <!--                            customBtn.addEventListener("click", function(){-->
-                    <!--                                realFileBtn.click();-->
-                    <!--                            });-->
-
-                    <!--                            realFileBtn.addEventListener("change", function(){-->
-                    <!--                                if(realFileBtn.value){-->
-                    <!--                                    customTxt.innerHTML = realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];-->
-                    <!--                                }else{-->
-                    <!--                                    customTxt.innerHTML = "No file choosen, yet.";-->
-                    <!--                                }-->
-                    <!--                            });-->
-
-
-                    <!--                    </script>-->
-
                 </div>
-
-                <!--				<input id="submitBtn" type="submit" value="Upload" >-->
 
             </div>
 
