@@ -29,6 +29,7 @@
 
 }
 
+/*--changes where made and dark mode is basically light mode, put here for clarification-------------*/
 .dark-theme{
     --primary-color: #ffffff;
     --secondary-color: black;
@@ -171,6 +172,23 @@ nav:hover{
     font-size: 18px;
     letter-spacing: 1px;
     margin-bottom: 15px;
+     line-height: 150%;
+}
+
+#contentTextGuide{
+    color: var(--secondary-color);
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+     line-height: 150%;
+}
+
+#contentTextExample{
+    color: var(--secondary-color);
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+     line-height: 150%;
 }
 
 #contentStepText{
@@ -222,7 +240,7 @@ nav:hover{
 .container-list div h2{
     color: var(--secondary-color);
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 15px;
 }
 
@@ -271,7 +289,7 @@ nav:hover{
 .container-list2 div h2{
     color: var(--secondary-color);
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 15px;
 }
 
@@ -429,134 +447,6 @@ html{
 /*--------------Transition Images ends-------------------------------*/
 
 
-/*--------------GGC second page---------------------------------------------*/
-.title2{
-    color: var(--secondary-color);
-    font-size: 60px;
-    font-weight: bold;
-    margin-left: 100px;
-
-}
-
-#GGClink{
-    color: var(--secondary-color);
-    position: relative;
-    margin-left: 90px;
-    margin-top: 20px;
-    font-size: 20px;
-    font-family: "Poppins", sans-serif;
-}
-
-#GGClinkColor{
-    color: green;
-    position: relative;
-    font-size: 20px;
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-
-}
-
-#box1{
-    display: block;
-    margin: auto;
-    width: 95%;
-    height: 100%;
-
-}
-
-iframe{
-    border-radius: 10px;
-    display: block;
-    margin: auto;
-    width: 1300px;
-    height: 1000px;
-}
-
-.MMT-grid{
-    align-items: center;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    transition: 0.5s;
-    width: 100px;
-    margin-left: 240px;
-    margin-top: 200px;
-
-}
-
-.MMT-grid2{
-    align-items: center;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    transition: 0.5s;
-    margin-left: 440px;
-    margin-top: 40px;
-    margin-bottom: 200px;
-}
-
-.Box{
-    background-color: var(--fourth-color);
-    width: 400px;
-    height: 400px;
-    border-radius: 20px;
-
-}
-
-.MMT-grid div{
-    transition: 0.5s;
-
-}
-
-.MMT-grid2 div{
-    transition: 0.5s;
-
-}
-
-.MMT-grid div:hover{
-
-    transform: translate(-10px);
-    background-color: var(--third-color);
-    box-shadow: var(--seventh-color) 5px 5px 5px 5px;
-}
-
-.MMT-grid2 div:hover{
-
-    transform: translate(-10px);
-    background-color: var(--third-color);
-    box-shadow: var(--seventh-color) 5px 5px 5px 5px;
-}
-
-.imgBio{
-    margin-left: 100px;
-    margin-top: 50px;
-    width: 200px;
-    clip-path: circle();
-}
-
-.Box p{
-    text-align: center;
-    color: var(--secondary-color);
-}
-
-.linkedIn{
-    text-align: center;
-    color: #0072b1;
-    font-weight: bold;
-    margin-left: 50px;
-}
-
-.MMT-grid .name{
-    font-weight: bolder;
-    size: 40px;
-}
-
-.MMT-grid2 .name{
-    font-weight: bolder;
-    size: 40px;
-}
-/*--------------GGC second page ends----------------------------------------*/
-
-
 .upload {
     margin-left: 25%;
     margin-right: 25%;
@@ -693,7 +583,7 @@ iframe{
                     cases will specify the selection of equivalence classes for the parameter
                     and the expected test results when the test has been running.</p>
 
-                <p id="contentText">Link to user guide, click<a id="floatingLinkGuide" href="https://github.com/cventimiglia/Team_CPMC/blob/main/USER-GUIDE.txt" target="_blank">HERE</a></p>
+                <p id="contentTextGuide">Link to user guide, click<a id="floatingLinkGuide" href="https://github.com/cventimiglia/Team_CPMC/blob/main/USER-GUIDE.txt" target="_blank">HERE</a></p>
 
 
             </div>
@@ -718,7 +608,7 @@ iframe{
 
             <div>
                 <h2>Example of JSON file.</h2>
-                <p id="contentText">For example JSON file click<a id="floatingLinkExample" href="https://github.com/cventimiglia/Team_CPMC/blob/main/ExecutionQueueOnSave.json" target="_blank">HERE</a></p>
+                <p id="contentTextExample">For example JSON file click<a id="floatingLinkExample" href="https://github.com/cventimiglia/Team_CPMC/blob/main/ExecutionQueueOnSave.json" target="_blank">HERE</a></p>
                 <p id="contentStepText">Step 1</p>
                 <p id="contentText">Click browse and choose JSON file</p>
                 <img id="ImgBrowse" th:src="@{https://i.imgur.com/w748lDt.png}">
