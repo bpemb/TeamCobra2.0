@@ -1,9 +1,6 @@
 package com.example.uploadingfiles;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Queue;
@@ -11,6 +8,9 @@ import java.util.stream.Collectors;
 
 import com.example.uploadingfiles.fileParsing.DataObject;
 import com.example.uploadingfiles.fileParsing.ExpectedResult;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -108,6 +108,30 @@ public class FileUploadController {
 		// parse the file and create the count variable and update it as you populate
 		// the arrayList
 		DataObject dataObject = fileParser.parseJSONFile("upload-dir/" + file.getOriginalFilename());
+
+		//Saif
+		//Prints out Parameters and CoverageGroups names
+		try {
+			//Parsing the contents of the JSON file
+			JSONObject jsonObject = (JSONObject)new JSONParser().parse(new FileReader("upload-dir/" + file.getOriginalFilename()));
+			//Retrieving the array
+			JSONArray jsonArray = (JSONArray) jsonObject.get("CoverageGroups");
+			//Cycles through the array, writes the Parameters and CoverageGroups names to the txt file
+			//Also removes unwanted brackets and such
+			for(Object e : jsonArray) {
+
+				writer.write(e.toString().replace("{","").replace("}","").replace("\"","").replace(","," | ").replace(":",": ") + "\n");
+
+			}
+			writer.write("\n");
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
 		ArrayList<Parameter> arrList = fileParser.parseParameters(dataObject);
 		int count = 1;
 
