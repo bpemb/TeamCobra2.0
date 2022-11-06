@@ -95,6 +95,7 @@ nav{
     height: 45px;
 }
 
+
 a{
     position: relative;
     color: rgb(85, 83, 83);
@@ -112,7 +113,6 @@ a{
     padding: 20px;
     color: #eee;
 
-
 }
 
 .nav-item:hover{
@@ -125,12 +125,21 @@ a{
 
 }
 
+
+
 nav:hover{
     width: 280px;
     transition: all 0.5s ease;
     background: rgb(85, 83, 83);
 
 }
+#li4{
+  list-style-type: none;
+  position: fixed;
+  bottom: 0;
+
+}
+
 /*--------------Navigation bar end-------------------------------*/
 
 
@@ -480,7 +489,9 @@ html{
     font-family: "Poppins", sans-serif;
     font-weight: bold;
 
+
 }
+
     </style>
 
 </head>
@@ -548,13 +559,13 @@ html{
             </a>
             </li>
 
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br>
             <hr class="lineAtIcon">
-            <li><a href="http://localhost:8080/login" class="sublogo">
+            <li id = "li4"><a href="http://localhost:8080/login" class="sublogo">
                 <img th:src="@{https://i.imgur.com/SnaZwNf.png}" alt="">
                 <span class="nav-item">Login</span>
             </a>
-
+            </li>
         </ul>
     </nav>
 </div>
