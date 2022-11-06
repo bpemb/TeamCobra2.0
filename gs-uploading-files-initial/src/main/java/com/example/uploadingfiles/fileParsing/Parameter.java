@@ -32,19 +32,6 @@ public class Parameter {
 	}
 
 
-
-	/**
-	 *
-	 * Constructor: Parameter
-	 * Constructor used for creating method for getting combinations from coverage groups
-	 */
-	public Parameter(String name, ArrayList<String> equivalenceClasses) {
-		this.name = name;
-		this.equivalenceClasses = equivalenceClasses;
-	}
-
-
-
 	/**
 	 * method: addParam()
 	 * This method will add the equivalence classes of a particular parameter to an arrayList
