@@ -33,9 +33,9 @@ public class WebPageTest {
     @BeforeAll
     public static void setUpChrome() {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pemberton\\OneDrive - Georgia Gwinnett College\\Software Development II\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pemberton\\OneDrive - Georgia Gwinnett College\\Software Development II\\chromedriver\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get("http://localhost:8080/");
+        //   driver.get("http://localhost:8080/");
     }
 
     @AfterAll
@@ -56,13 +56,11 @@ public class WebPageTest {
 
         driver.get("http://localhost:8080/");
 
-        String url = "https://github.com/cventimiglia/Team_CPMC/blob/main/USER-GUIDE.txt";
+
 
         WebElement userGuide = driver.findElement(By.id("floatingLinkGuide"));
         userGuide.sendKeys(Keys.ENTER);
 
-        driver.get(url);
-        driver.close();
 
 
     }
@@ -80,13 +78,12 @@ public class WebPageTest {
 
         driver.get("http://localhost:8080/");
 
-        String url = "https://github.com/cventimiglia/Team_CPMC/blob/main/ExecutionQueueOnSave.json";
+
 
         WebElement jsonFile = driver.findElement(By.id("floatingLinkExample"));
         jsonFile.sendKeys(Keys.ENTER);
 
-        driver.get(url);
-        driver.close();
+
 
     }
 
@@ -100,7 +97,53 @@ public class WebPageTest {
 
         boolean imgPresent = driver.findElement(By.id("ImgBrowse")).isDisplayed();
 
-        Assert.assertFalse(imgPresent == false);
+        Assert.assertFalse(!imgPresent);
+
+
+
+    }
+
+    /**
+     * this method checks if the grizzly image is shown
+     */
+    @Test
+    @Order (9)
+    public void testGrizzlyImage() {
+        driver.get("http://localhost:8080/");
+
+        boolean imgPresent = driver.findElement(By.id("overlapImage")).isDisplayed();
+
+        Assert.assertFalse(!imgPresent);
+
+    }
+
+    /**
+     * this method checks if the team logo image is shown
+     */
+    @Test
+    @Order (9)
+    public void testTeamLogoImage() {
+        driver.get("http://localhost:8080/");
+
+        boolean imgPresent = driver.findElement(By.xpath("/html/body/img[2]")).isDisplayed();
+
+        Assert.assertFalse(!imgPresent);
+
+
+
+    }
+
+    /**
+     * this method checks if the team logo image is shown
+     */
+    @Test
+    @Order (9)
+    public void testDarkModetoLight() {
+        driver.get("http://localhost:8080/");
+
+        WebElement darkLightButton = driver.findElement(By.id("moonLogo"));
+
+        darkLightButton.click();
 
 
 
@@ -156,7 +199,9 @@ public class WebPageTest {
     }
 
 
-
+    /**
+     * this method test the link to navigate to the GGC tab
+     */
     @Test
     @Order (5)
     public void testGGCLink() {
@@ -167,8 +212,14 @@ public class WebPageTest {
 
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(URL, "https://teamcobra.neocities.org/CobraGGCpage.html" );
-    }
 
+        WebElement ggcExternalLink = driver.findElement(By.xpath("//*[@id=\"GGClinkColor\"]"));
+        ggcExternalLink.sendKeys(Keys.ENTER);
+
+    }
+    /**
+     * this method test the link to navigate to the Information tab
+     */
     @Test
     @Order (6)
     public void testInformationLink() {
@@ -181,6 +232,9 @@ public class WebPageTest {
         Assert.assertEquals(URL, "https://teamcobra.neocities.org/CobraInfo.html" );
     }
 
+    /**
+     * this method test the link to navigate to the Meet the Team tab
+     */
     @Test
     @Order (7)
     public void testMeetTheTeamLink() {
@@ -193,6 +247,9 @@ public class WebPageTest {
         Assert.assertEquals(URL, "https://teamcobra.neocities.org/CobraMTT.html" );
     }
 
+    /**
+     * this method test the link to navigate to the About tab
+     */
     @Test
     @Order (8)
     public void testAboutLink() {
