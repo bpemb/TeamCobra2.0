@@ -40,6 +40,42 @@ ITEC 3870 Team Cobra
      <p>ii. Click the Eclipse Marketplace and search for Spring Tools 4 (aka Spring Tool Suite 4)</p>
      <p>iii. Install Spring Tools 4</p>
      
+3. **PostgreSQL**
+     Go to  https://www.postgresql.org/download/.
+     Select windows for your operating system.
+     Click on Download the Installer.
+     Select the version (The version i'm running is 15) and Download.
+     Run the installer after download is finished.
+
+     Installer:
+     Specify the directory where it will be installed.
+     For the Components Section, leave them all selected by Default.
+     Select the directory to store your data.
+     For the Password section, this will be your password for your database superuser (DON'T FORGET IT).
+     Leave the port number at 5432.
+     Leave the locale at default.
+     
+  4. **PGADMIN4**
+     Go to https://www.pgadmin.org/download/pgadmin-4-windows/ .
+     Click the appropriate version (I am running v6.14).
+     After downloading the installer go through all the steps. You can leave all the options at default.
+     Boot up PGADMIN4 and enter the password for your super user from earlier.
+     Click on server in your browser area to the left and it will prompt you for your password again. You can save password if you wish.
+     A default database will be created called postgres.
+     In our applications.yml file we have configured autoddl to create-drop. This creates the database upon running the code, and then deletes the data after you            terminate the program.
+     
+     To change any settings navigate to the application.yml file and set it according to your configurations.
+     ```
+     Spring:
+     datasource:
+     password: "your password to your superuser"
+     url: jdbc:postgresql://localhost:5342/"The database you are connecting to"
+     username: postgres       "this is usually the default"
+     ```
+     
+     FURTHER HELP
+     If you need further help on how to install PostgreSql and Pgamin4 follow this video: https://www.youtube.com/watch?v=C93Ed8b8Mhc
+
 ## How to Run this Program
 Right click on ```gs-uploading-files-initial```, click ```run as```, and in the options to run the file select ```Spring Boot App```. Finally,
 go to a web browser of your choosing and type in the following ```localhost:8080```.
