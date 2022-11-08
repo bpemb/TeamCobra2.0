@@ -1,4 +1,4 @@
-package com.example.uploadingfiles.user;
+package com.example.uploadingfiles.database.users;
 
 import com.example.uploadingfiles.database.Users;
 

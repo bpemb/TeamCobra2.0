@@ -49,16 +49,9 @@ public class Users implements Serializable {
 
 
     @Column
-    private String status;
-
-    @Column
     private String role;
 
-//    public User(String username, String email, String password) {
-//        this.username = username;
-//        this.email = email;
-//        this.password = password;
-//    }
+
 
     public String getFirstName() {
         return firstName;
@@ -114,14 +107,6 @@ public class Users implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     @Override

@@ -24,7 +24,4 @@ public class CustomUserDetailsService implements UserDetailsService {
         return new com.example.uploadingfiles.database.CustomUserDetails(users);
     }
 
-//    public static String signUpUser(Users users){
-//        return "";
-//    }
 }

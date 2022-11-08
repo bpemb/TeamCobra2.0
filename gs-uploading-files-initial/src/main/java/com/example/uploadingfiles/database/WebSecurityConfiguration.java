@@ -18,6 +18,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 
+
+
 @Deprecated
 @Configuration
 @EnableWebSecurity
@@ -25,24 +27,14 @@ import javax.sql.DataSource;
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
-//    @Bean
-//    public BCryptPasswordEncoder bCryptPasswordEncoder(){
-//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-//        return new BCryptPasswordEncoder();
-//    }
-//@Bean
-//public UserDetailsService userDetailsService() {
-//    return super.userDetailsService();
-//}
 
-    //registration tut
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
     private DataSource dataSource;
     @Value("${spring.queries.users-query}")
     private String usersQuery;
-    //
+
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -50,15 +42,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        //auth.jdbcAuthentication().usersByUsernameQuery(usersQuery).dataSource(dataSource).passwordEncoder(bCryptPasswordEncoder);
-
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery(
                         "SELECT username, password, 'true' as enabled FROM users WHERE username=?")
                 .authoritiesByUsernameQuery(
-                        "SELECT username, 'roles' FROM users WHERE username=?");;
-        //commented out for registration code
-        //        auth.authenticationProvider(authenticationProvider());
+                        "SELECT username, 'roles' FROM users WHERE username=?");
+
     }
 
     @Bean
@@ -70,10 +59,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         return provider;
     }
 
-//    public JdbcUserDetailsManagerConfigurer<B> usersByUsernameQuery(String query) {
-//        getUserDetailsService().setUsersByUsernameQuery(query);
-//        return this;
-//    }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

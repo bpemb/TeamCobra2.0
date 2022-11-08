@@ -1,6 +1,7 @@
-package com.example.uploadingfiles.user;
+package com.example.uploadingfiles.database.controllers;
 
 import com.example.uploadingfiles.database.Users;
+import com.example.uploadingfiles.database.users.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -32,7 +33,7 @@ public class RegistrationController{
     @RequestMapping(value="/register", method=RequestMethod.POST)
     public ModelAndView registerUser(@Valid Users users, BindingResult bindingResult, ModelMap modelMap) {
         ModelAndView modelAndView = new ModelAndView();
-        // Check for the validations
+
         if(bindingResult.hasErrors()) {
             modelAndView.addObject("successMessage", "Please correct the errors in form!");
             modelMap.addAttribute("bindingResult", bindingResult);
@@ -40,7 +41,6 @@ public class RegistrationController{
         else if(userService.isUserAlreadyPresent(users)){
             modelAndView.addObject("successMessage", "user already exists!");
         }
-        // we will save the user if, no binding errors
         else {
             users.setRole("USER");
             userService.saveUser(users);
