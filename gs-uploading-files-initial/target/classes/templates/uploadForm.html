@@ -1,107 +1,752 @@
 <html xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-<style>
-body {background-color: #ffffff;}
-hr {width: 50%;}
-.warning {color: red;}
-.description {margin-left: 25%; margin-right: 25%; padding: 10px; text-align: center;
-    background-color: #465c69; background-size: cover; background-repeat: no-repeat;}
-.upload {margin-left: 25%; margin-right: 25%; padding: 10px; border: 3px dotted black; text-align: center; background-color: #525252}
-main {margin-left: 25%; margin-right: 25%; padding: 10px; text-align: center;
-    background-color: #465c69; background-size: cover; background-repeat: no-repeat;}
- .about {float: left; width: 20%; padding: 10px; text-align: center;}
-  aside {float: right; width: 25%; padding: 10px; text-align: center;}
- .wrapper {width: 80%; margin-left: auto; margin-right: auto; background-color: #525252;
-    box-shadow: 5px 5px 5px #1e1e1e;}
- .centerpeeps {text-align: center;}
- a {color:#efd7c6;}
 
-</style>
+    <title>TeamCobra2.0 </title>
+
+    <link th:src="@{https://i.imgur.com/HzN8JdE.png}" rel="icon" type="x-icon">
+
+    <style>
+
+*{
+    margin: 2px;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+
+:root{
+    --primary-color: #121212;
+    --secondary-color: white;
+    --third-color: #ff004f;
+    --fourth-color: #262626;
+    --fifth-color: #a0a0a0;
+    --sixth-color: #d0d0d0;
+    --seventh-color: #595953;
+
+}
+
+/*--changes where made and dark mode is basically light mode, put here for clarification-------------*/
+.dark-theme{
+    --primary-color: #ffffff;
+    --secondary-color: black;
+    --third-color: #03dac5;
+    --fourth-color: #a2f3eb;
+    --fifth-color: #012c27;
+    --sixth-color: #c6fef9;
+    --seventh-color: #595953;
+
+}
+
+#moonLogo{
+    top: 0;
+    cursor: pointer;
+    display: flex;
+    text-align: right;
+    width: 30px;
+    height: 30px;
+    margin-top: 30px;
+    margin-left: 50px;
+
+}
+
+body {
+    background: var(--primary-color);
+}
+
+
+
+/*--------------Navigation bar-------------------------------*/
+nav{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    right: 0;
+    width: 80px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    display: flex;
+    transition: all 0.5s ease;
+
+}
+
+.lineAtIcon{
+    width: 90%;
+    height: 1PX;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    background-color: grey;
+}
+
+.sublogo img{
+    width: 45px;
+    height: 45px;
+
+}
+
+.sublogoIcon img{
+    width: 45px;
+    height: 45px;
+}
+
+
+a{
+    position: relative;
+    color: rgb(85, 83, 83);
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+
+}
+
+.nav-item{
+    position: relative;
+    bottom: 18px;
+    margin-right: 10px;
+    padding: 20px;
+    color: #eee;
+
+}
+
+.nav-item:hover{
+    color: black;
+
+}
+
+.sublogo:hover{
+    background: #eee;
+
+}
+
+
+
+nav:hover{
+    width: 280px;
+    transition: all 0.5s ease;
+    background: rgb(85, 83, 83);
+
+}
+#li4{
+  list-style-type: none;
+  position: fixed;
+  bottom: 0;
+
+}
+#li5{
+    list-style-type: none;
+    position: fixed;
+    bottom: 70px;
+
+}
+
+/*--------------Navigation bar end-------------------------------*/
+
+
+.TeamLogo{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 100px;
+    bottom: 100px;
+    left: 100px;
+    right: 100px;
+    border-radius: 10px;
+
+}
+
+.title{
+    color: var(--secondary-color);
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 120px;
+    margin-left: 100px;
+}
+
+.bodySpace{
+    justify-content: space-evenly;
+}
+
+
+/*--------------Three boxes/ Mid section-------------------------------*/
+#wrapper{
+    padding: 30px 0;
+    margin-top: 200px;
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+#contentText{
+    color: var(--secondary-color);
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+     line-height: 150%;
+}
+
+#contentTextGuide{
+    color: var(--secondary-color);
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+     line-height: 150%;
+}
+
+#contentTextExample{
+    color: var(--secondary-color);
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+     line-height: 150%;
+}
+
+#contentStepText{
+    color: black;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#floatingLinkGuide{
+    color: purple;
+    font-size: 20px;
+    padding: 0;
+    margin: 3px;
+    font-weight: bold;
+}
+
+#floatingLinkExample{
+    color: purple;
+    font-size: 20px;
+    padding: 0;
+    margin: 3px;
+    font-weight: bold;
+}
+
+#ImgBrowse{
+    border-radius: 15px;
+}
+.container-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 70px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.container-list div{
+    background: var(--fourth-color);
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.container-list div h2{
+    color: var(--secondary-color);
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.container-list div a{
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.container-list div:hover{
+    background: var(--third-color);
+    transform: translate(-10px);
+}
+
+/*--------------Three boxes/ Mid section end-------------------------------*/
+
+
+
+/*--------------Three boxes/ end section-------------------------------*/
+#wrapper2{
+
+    padding: 30px 0;
+    margin-top: 200px;
+}
+
+.container-list2{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 70px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.container-list2 div{
+    background: var(--fourth-color);
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.container-list2 div h2{
+    color: var(--secondary-color);
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.container-list2 div a{
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.uploadBox:hover{
+    background: var(--third-color);
+    transform: translate(-10px);
+}
+
+.inputFileBox{
+    margin: 20px;
+    border: 2px dashed black;
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+.inputFileBox2{
+    margin: 20px;
+    border: no border;
+    text-align: center;
+
+}
+
+.uploadBox div{
+    background-color: var(--sixth-color);
+}
+
+.inputFileBox:hover{
+
+}
+
+.uploadBox{
+    text-align: center;
+}
+
+.container2 #customBtn{
+    margin-top: 20px;
+    width: 60%;
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: var(--third-color);
+    color: var(--primary-color);
+
+}
+
+.container2 #submitBtn{
+    margin-top: 20px;
+    width: 40%;
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: white;
+    background-color: var(--third-color);
+}
+
+.container2 #customBtn:hover{
+    background-color: white;
+    color: #121212;
+}
+
+.container2 #submitBtn:hover{
+    background-color: white;
+    color: black;
+}
+
+.container2 #custon-text{
+    margin-top: 10px;
+    font-family: sans-serif;
+
+}
+
+.container2 #default-btn{
+    color: #121212;
+}
+/*--------------Three boxes/ end section ends-------------------------------*/
+
+
+footer {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.8em;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.button{
+    padding: 1em;
+    background-color: var(--third-color);
+    color: #121212;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.5s;
+    display: block;
+    margin: auto;
+
+}
+
+.button:hover {
+    color: var(--secondary-color);
+    background-color: var(--fourth-color);
+
+}
+
+/*--------------Transition Images-------------------------------*/
+#overlapImage{
+    margin-left: 800px;
+    margin-top: 200px;
+    z-index: 2;
+    position: absolute;
+    transition: 1s;
+
+}
+
+#overlapImage2{
+    margin-left: 600px;
+    margin-top: 300px;
+    z-index: 1;
+    transition: 1s;
+
+}
+
+#overlapImage:hover{
+    transform: translateX(40px);
+
+}
+
+#overlapImage2:hover{
+    transform: translateY(-40px);
+
+}
+/*--------------Transition Images ends-------------------------------*/
+
+
+.upload {
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 10px;
+    border: 3px dotted black;
+    text-align: center;
+    background-color: #525252;
+  }
+
+#hrFooter{
+    color: black;
+}
+
+.footerSection{
+    background: rgb(85, 83, 83);
+}
+
+#GGClink{
+    color: var(--secondary-color);
+    position: relative;
+    margin-left: 90px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+#GGClinkColor{
+    color: green;
+    position: relative;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+
+
+}
+
+    </style>
+
 </head>
+
+<img th:src="@{https://i.imgur.com/LOsNY8n.png}" id="moonLogo">
+
+<script>
+
+    var moonLogo = document.getElementById("moonLogo");
+    moonLogo.onclick = function(){
+
+        document.body.classList.toggle("dark-theme");
+        if(document.body.classList.contains("dark-theme")){
+             moonLogo.src = "https://i.imgur.com/Nh1WmIJ.png";
+
+        }
+        else{
+
+            moonLogo.src = "https://i.imgur.com/LOsNY8n.png";
+        }
+
+    }
+
+</script>
+
+<div>
+    <nav>
+        <ul>
+            <li>
+                <a href="#" class="sublogoIcon">
+                    <img th:src="@{https://i.imgur.com/0hLItNS.png}" alt="">
+                    <span class="nav-item"></span>
+                </a>
+            </li>
+
+            <hr class="lineAtIcon">
+
+            <li><a href="http://localhost:8080/" class="sublogo">
+                <img th:src="@{https://i.imgur.com/sDgzMST.png}" alt="">
+                <span class="nav-item">Home</span>
+            </a>
+            </li>
+
+            <li><a href="https://teamcobra.neocities.org/CobraGGCpage.html" class="sublogo">
+                <img th:src="@{https://i.imgur.com/NmTcjQn.png}" alt="">
+                <span class="nav-item">Georgia Gwinnett College</span>
+            </a>
+            </li>
+
+            <li><a href="https://teamcobra.neocities.org/CobraInfo.html" class="sublogo">
+                <img th:src="@{https://i.imgur.com/3ka61k3.png}" alt="">
+                <span class="nav-item">Information</span>
+            </a>
+            </li>
+
+            <li><a href="https://teamcobra.neocities.org/CobraMTT.html" class="sublogo">
+                <img th:src="@{https://i.imgur.com/T280Fe8.png}" alt="">
+                <span class="nav-item">Meet The Team</span>
+            </a>
+            </li>
+
+            <li><a href="https://teamcobra.neocities.org/CobraAbout.html" class="sublogo">
+                <img th:src="@{https://i.imgur.com/Z1C5mMF.png}" alt="">
+                <span class="nav-item">About</span>
+            </a>
+            </li>
+
+
+
+            <li id = "li4"><a href="http://localhost:8080/login" class="sublogo">
+                <hr class="lineAtIcon" >
+                <br>
+                <img th:src="@{https://i.imgur.com/SnaZwNf.png}" alt="">
+                <span class="nav-item">Login</span>
+            </a>
+            </li>
+
+            <li id = "li5"><a href="http://localhost:8080/register" class="sublogo">
+                <hr class="lineAtIcon" >
+                <br>
+                <img th:src="@{https://i.imgur.com/SnaZwNf.png}" alt="">
+                <span class="nav-item">Register</span>
+            </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
 <body>
+
+<img th:src="@{https://i.imgur.com/L0oahvU.png}" class="TeamLogo">
+
+<div id="overlapImage">
+    <img th:src="@{https://i.imgur.com/xKr3kDI.png}">
+</div>
+<div id="overlapImage2">
+    <img th:src="@{https://i.imgur.com/pSxwxGZ.png}">
+</div>
+
+<h1 class="title">Category-Partition<br>Method</h1>
+
+<div id="wrapper">
+
+    <div class="container">
+
+        <div class="container-list">
+
+            <div>
+                <h2>What does this page do?</h2>
+                <p id="contentText">The purpose of this project is to implement a functional API
+                    that takes the name of an input file as its parameter and returns the name
+                    of an output file as its only result. The input file will specify the functionality
+                    of the software under test using the category-partition method. The API will
+                    apply the category-partition method to the formatted contents of the input file,
+                    generating test cases based on the specification, and writing the results for
+                    them to an output file in the Cucumber "given-when-then" notation. The test
+                    cases will specify the selection of equivalence classes for the parameter
+                    and the expected test results when the test has been running.</p>
+
+                <p id="contentTextGuide">Link to users guide, click<a id="floatingLinkGuide" href="https://github.com/cventimiglia/Team_CPMC/blob/main/USER-GUIDE.txt" target="_blank">HERE</a></p>
+
+
+            </div>
+
+            <div>
+                <h2>The Category-Partition Method.</h2>
+                <p id="contentText">As a tester, the number of tests that can be performed depends on
+                    a set of conditions and parameters of a function. The number of
+                    tests can be small, but most of the time, it is a large amount.
+                    Therefore, most testers use different testing techniques to help
+                    limit the total number of tests needing to be completed. The
+                    Category-Partition Method allows the tester to generate
+                    equivalence classes for each parameter. For example, an integer
+                    parameter can have equivalence classes: Negative, Positive,
+                    Max Integer Value, Min Integer Value, and 0. These equivalence
+                    classes eliminate the need to test every number of the same type.
+                    An example would be the numbers Seven or Eight. Since the two
+                    numbers are both positive integers, they will provide the same
+                    functionality within the test. </p>
+
+            </div>
+
+            <div>
+                <h2>Example of JSON file.</h2>
+                <p id="contentTextExample">For example JSON file click<a id="floatingLinkExample" href="https://github.com/cventimiglia/Team_CPMC/blob/main/ExecutionQueueOnSave.json" target="_blank">HERE</a></p>
+                <p id="contentStepText">Step 1</p>
+                <p id="contentText">Click browse and choose JSON file</p>
+                <img id="ImgBrowse" th:src="@{https://i.imgur.com/w748lDt.png}">
+                <br><br>
+                <p id="contentStepText">Step 2</p>
+                <p id="contentText">Press upload and get results</p>
+                <p id="contentText">Easy right?</p>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div id="wrapper2">
+
+    <div class="container2">
+
+        <div class="container-list2">
+
+            <div class="uploadBox">
+                <h2>Upload File</h2>
+
+                <div class=inputFileBox>
+                    <div class=insideFileBox>
+                        <div class=fileInputImage>
+                            <img th:src="@{https://i.imgur.com/wCoVPWu.png}">
+
+                        </div>
+
+                        <form method="POST" enctype="multipart/form-data" action="/">
+
+                            <p class="warning">*Note: file must be .json file</p>
+
+                            <p><input type="file" name="file"/></p>
+
+                            <br>
+                            <p><input id="submitBtn" type="submit" value="Upload"/></p>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="uploadBox">
+                <h2>Result</h2>
+
+                <div class=inputFileBox2>
+
+                    <!--- I have come across this error, and cannot determine where message might be referring to. --->
+                    <div th:if="${message}">
+
+                        <h3> Your completed file(s) here: </h3>
+                        <ul>
+                            <th:block th:each="file : ${files}">
+                                <!---This commented out code is the original version that lists all the files in the StorageService, the current version
+                                checks if the file to be listed is a json, and if it is, ignores it. --->
+                                <!--- <a th:href="${file}" th:text="${file}"></a> --->
+                                <li th:unless="${file.endsWith('.json')}"><a th:href="${file}" th:text="${file}"></a>
+                                </li>
+                            </th:block>
+                        </ul>
+
+                        <h3 th:text="${message}"/>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+</div>
+
+
 <div class="wrapper">
-	
-	<div class="about">
-	<h2> What does this page do? </h2>
-	<hr>
-	<p>
-	The purpose of this project is to implement a functional API that takes the name of an input file as its parameter and return the name of an output file as its only result. The input file will specify the functionality of software under test using the category-partition method. The API will apply the category-partition method to the formated contents of the input file, generating test cases based on the specification, and writing the results for them to an output file in the Cucumber "given-when-then" notation. The test cases will specify the selection of equivalence classes for the parameter and the expected test results when the test has been running.
-	</p>
-	<a href ="https://github.com/cventimiglia/Team_CPMC/blob/main/USER-GUIDE.txt" target="_blank">Link to User Guide</a>
-	</div>
-	
-	<aside>
-	<h2>What are the roles of this team?</h2>
-	<hr>
-	<p>
 
-		<br/>&#10028;<p style="font-size: 20px"> David Marshall</p>
-		<br/>Code Architecture
-		<br/>Client Liason
-          <br/>
-		<br/>&#10028;<p style="font-size: 20px">Ephrem Engida</p>
-		<br/>UI/UX Design
-		<br/>Team Manager
-         <br/>
-		<br/>&#10028;<p style="font-size: 20px">Chris Wilder</p>
-		<br/>Documentation Lead
-		<br/>Testing Lead
-         <br>
-		<br/>&#10028;<p style="font-size: 20px">Matteo Kitic</p>
-		<br/>Data Modeler
+    <main>
 
-	</p>
-	</aside>
-	<main>
-	<div>
-	<h1 class="centerpeeps">&#128262; The Category-Partition Method &#128262;</h1>
-	<hr>
-	<h3 class="centerpeeps">What is the Category-Partition Method?</h3>
-	<p class="description">
-	As a tester, the number of tests that can be performed depends on a set of conditions and parameters of a function. 
-	<br/>The number of tests can be small, but most of the time, it is a large amount. Therefore, most testers use different testing techniques to help limit the total number of tests needing to be completed. 
-	<br/>The Category-Partition Method allows the tester to generate equivalence classes for each parameter. 
-	<br/>For example, an integer parameter can have equivalence classes: Negative, Positive, Max Integer Value, Min Integer Value, and 0. 
-	<br/>These equivalence classes eliminate the need to test every number of the same type. 
-	<br/>An example would be the numbers Seven or Eight. Since the two numbers are both positive integers, they will provide the same functionality within the test.
-	</p>
-	<a href ="https://github.com/cventimiglia/Team_CPMC/blob/main/ExecutionQueueOnSave.json" target="_blank">Example JSON File</a>
-	</div>
+        <br><br><br><br>
+        <a class="button" href="#top">Back to top</a>
+        <br><br><br><br>
+        <hr id="hrFooter">
 
-	<div class="upload">
-		<form method="POST" enctype="multipart/form-data" action="/">
-				<br/><p>Input File Here: </p> <p class="warning">*note: file must be .json file</p>
-				<p><input type="file" name="file" /></p>
-				<p><input type="submit" value="Upload" /></p>
-		</form>
-	</div>
-    <!--- I have come across this error, and cannot determine where message might be referring to. --->
-	<div th:if="${message}">
-		<h3 th:text="${message}"/>
-	</div>
+        <div class="footerSection">
+            <br><br><br>
+            <footer>
+                Copyright &copy; 2022 TEAMCOBRA2.0
+            </footer>
 
-	<div>
-		<h3> Your completed file(s) here: </h3>
-		<ul>
-			<th:block th:each="file : ${files}">
-				<!---This commented out code is the original version that lists all the files in the StorageService, the current version
-				checks if the file to be listed is a json, and if it is, ignores it. --->
-				<!--- <a th:href="${file}" th:text="${file}"></a> --->
-				<li th:unless="${file.endsWith('.json')}"><a th:href="${file}" th:text="${file}"></a></li>
-			</th:block>
-		</ul>
-	</div>
-	
-		<div class="team">
-		<h2>Team Java Beans:</h2>
-		&#10055;David Marshall
-		&#10055;Chris Wilder
-		&#10055;Ephrem Engida
-		&#10055;Matteo kitic
-		<h3>Click <a href="https://www.ggc.edu/" target="_blank">here</a> for more on Georgia Gwinnett College.</h3>
-	</div>
-	
-	</main>
-</div>	
+            <br><br><br><br>
+        </div>
+
+
+    </main>
+</div>
 </body>
 </html>
